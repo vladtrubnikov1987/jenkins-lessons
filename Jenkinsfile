@@ -22,5 +22,12 @@ pipeline {
                 sh 'cat version.txt'
             }
         }
+
+        stage('Deploy Staging') {
+            steps {
+                echo 'Deploying application to Staging environment...'
+            }
+        }
     }
-}
+}Щ
+
