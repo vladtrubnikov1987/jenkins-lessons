@@ -4,8 +4,15 @@ pipeline {
     stages {
         stage('Read Version') {
             steps {
-                echo 'Reading version from file...'
-                sh 'cat version.txt'
+                script {
+                    def version = sh(
+                        script: 'cat version.txt',
+                        returnStdout: true
+                    ).trim()
+
+                    echo "Base version: ${version}"
+                    echo "Dynamic version: ${version}-build-${BUILD_NUMBER}"
+                }
             }
         }
     }
