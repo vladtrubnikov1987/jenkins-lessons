@@ -8,5 +8,11 @@ pipeline {
                 sh './test.sh'
             }
         }
+
+        stage('System Info') {
+            steps {
+                sh 'df -h'
+            }
+        }
     }
 }
